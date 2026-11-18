@@ -2,7 +2,7 @@
 
 App en React Native con **Expo Router** para explorar el catálogo de vehículos de lujo de Vice City Motors y gestionar compras. Consume la API oficial `https://vicecity-motors-api.vercel.app`.
 
-## Funcionalidades
+# Funcionalidades
 
 | # | Funcionalidad | Dónde está |
 |---|---|---|
@@ -11,7 +11,7 @@ App en React Native con **Expo Router** para explorar el catálogo de vehículos
 | 3 | Detalle con todos los datos y botón **Comprar** con confirmación (`metodoPago: "transferencia"`) | `app/catalogo/[id].js` |
 | 4 | Historial de compras con vehículo, fecha y monto | `app/compras.js` |
 
-## Arquitectura por capas
+# Arquitectura por capas
 
 ```
 app/                  Pantallas (Expo Router)
@@ -32,7 +32,7 @@ constants/            Colores y estilos compartidos
 
 Las pantallas nunca llaman a `fetch` directamente: todo pasa por `services/api.js`. Esa capa agrega el token, maneja el tiempo de espera y convierte cualquier error en un mensaje legible.
 
-### Endpoints usados
+## Endpoints usados
 
 | Método | Ruta | Uso |
 |---|---|---|
@@ -44,14 +44,14 @@ Las pantallas nunca llaman a `fetch` directamente: todo pasa por `services/api.j
 | POST | `/ventas` | Comprar: `{ "vehiculoId": 1, "metodoPago": "transferencia" }` |
 | GET | `/ventas` | Mis compras (el cliente solo ve las suyas) |
 
-### Manejo de errores
+## Manejo de errores
 
 - Todos los errores se muestran en pantalla: con `Alert` para acciones como el login, el registro o la compra, y con un mensaje y un botón **Reintentar** cuando falla una carga.
 - Si la API responde **401** (token vencido), la app borra el token y vuelve al login.
 - Si no hay internet o el servidor tarda más de 20 segundos, la app muestra un mensaje en vez de quedarse cargando.
 - Casos que se manejan sin cerrar la app: email duplicado (409), credenciales inválidas (401), vehículo ya vendido (409), vehículo inexistente (404).
 
-## Instalación y ejecución
+# Instalación y ejecución
 
 > Crea el proyecto **fuera de OneDrive**, por ejemplo en `C:\proyectos\`. OneDrive bloquea los archivos de `node_modules`.
 
@@ -66,11 +66,11 @@ Las pantallas nunca llaman a `fetch` directamente: todo pasa por `services/api.j
 
 No hace falta `.env`: la URL de la API está en `services/api.js`.
 
-## Cuenta personal
+#Cuenta personal
 
 Cada estudiante crea su propia cuenta desde la pantalla **Crear cuenta** de la app, que usa `POST /auth/registro`. No se usan las cuentas de prueba de la colección de Postman.
 
-## Pruebas manuales
+# Pruebas manuales
 
 | Caso | Resultado esperado |
 |---|---|

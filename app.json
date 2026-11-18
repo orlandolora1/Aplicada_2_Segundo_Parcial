@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "Vice City Motors",
+    "slug": "vicecity-motors",
+    "version": "1.0.0",
+    "scheme": "vicecitymotors",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-splash-screen",
+      "expo-font"
+    ]
+  }
+}
